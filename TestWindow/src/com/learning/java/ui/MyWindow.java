@@ -33,17 +33,11 @@ public class MyWindow implements ActionListener {
 	public MyWindow() {
 
 		title = "My Application Window";
-
 		frame = new JFrame(title);
-
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.setSize(new Dimension(800, 800));
-
 		frame.setLocation(new Point(200, 200));
-
 		Panel mainPanel = new Panel(new BorderLayout(7, 7));
-
 		frame.setContentPane(mainPanel);
 
 		addMenu();
