@@ -9,6 +9,25 @@ import java.util.Random;
 public class Drawing extends Canvas {
 	private Color color;
 	
+    private int dx = 12; 
+    public int getDx() {
+		return dx;
+	}
+
+	public void setDx(int dx) {
+		this.dx = dx;
+	}
+
+	public int getDy() {
+		return dy;
+	}
+
+	public void setDy(int dy) {
+		this.dy = dy;
+	}
+
+	private int dy = 8; 
+	
 	private Rectangle circleBounds = new Rectangle(0,0,100,100);
 
 	public Drawing(Color color) {
@@ -17,7 +36,7 @@ public class Drawing extends Canvas {
 
 			@Override
 			public void run() {
-				moveBall2();
+				moveBall();
 				
 			}
 			
@@ -44,7 +63,7 @@ public class Drawing extends Canvas {
 
 	}
 
-	private void moveBall2() {
+	private void moveBall() {
 	    int canvasWidth = getWidth();
 	    int canvasHeight = getHeight();
 	    int width = circleBounds.width;
@@ -52,8 +71,6 @@ public class Drawing extends Canvas {
 
 	    int x = circleBounds.x + 36;
 	    int y = circleBounds.y + 72;
-	    int dx = 12; 
-	    int dy = 8; 
 
 	    while (true) {
 
@@ -84,30 +101,5 @@ public class Drawing extends Canvas {
 	            e.printStackTrace();
 	        }
 	    }
-	}
-
-	private void moveBall(Graphics g) {
-		Rectangle bounds = this.getBounds();
-		int width = 100;
-		int height = 100;
-		g.setColor(color);
-		Random randomizer = new Random();
-
-		for (int i = 0; i < 50; i++) {
-			int random = randomizer.nextInt() % 600;
-
-			int x = Math.abs(random);
-			random = randomizer.nextInt() % 600;
-			int y = Math.abs(random);
-			
-			try {
-				Thread.sleep(100); 
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			g.clearRect(bounds.x, bounds.y, bounds.width, bounds.height);
-			
-			g.fillOval(x, y, width, height);
-		}
 	}
 }
